@@ -26,9 +26,6 @@ export function TildaHead() {
       <meta content="on" httpEquiv="x-dns-prefetch-control" key="head-14" />
       <link href="https://ws.tildacdn.com" rel="dns-prefetch" key="head-15" />
       <link href="index.html" rel="dns-prefetch" key="head-16" />
-      <link href="tild3731-3236-4765-b034-616438356535/3232.png" rel="icon" sizes="32x32" type="image/png" key="head-17" />
-      <link href="tild3366-6563-4265-b236-336538353734/180180.png" rel="apple-touch-icon" type="image/png" key="head-18" />
-      <link href="tild3366-6563-4265-b236-336538353734/180180.png" rel="icon" sizes="192x192" type="image/png" key="head-19" />
       <script async charSet="utf-8" src="js/tilda-fallback-1.0.min.js" key="head-20" />
       <link href="css/tilda-grid-3.0.min.css" media="all" onError={(e) => { (e.target as HTMLElement & {loaderr?:string}).loaderr = "y"; }} rel="stylesheet" type="text/css" key="head-21" />
       <link href="ws/project39486/tilda-blocks-page37696602.min__t_1783757606.css" media="all" onError={(e) => { (e.target as HTMLElement & {loaderr?:string}).loaderr = "y"; }} rel="stylesheet" type="text/css" key="head-22" />
