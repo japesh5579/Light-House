@@ -78,23 +78,20 @@ CONTACTS
 @media(max-width:640px){.lh-hero-video-wrap{padding-top:125%;max-height:420px;}}
 }
 </style>
-<video class="lh-hero-video" poster="lh-hero-bg.png" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata"></video>
+<video class="lh-hero-video" poster="lh-hero-bg.png" loop="" muted="" autoplay="" playsinline="" webkit-playsinline="" preload="auto">
+<source src="lh-hero-video.mp4" type="video/mp4"/>
+</video>
 <script>
 (function(){
   function loadHeroVideo(){
     var v = document.querySelector('.lh-hero-video');
     if(!v || v.dataset.loaded) return;
     v.dataset.loaded = '1';
-    var src = document.createElement('source');
-    src.src = 'lh-hero-video.mp4';
-    src.type = 'video/mp4';
-    v.appendChild(src);
     v.addEventListener('loadedmetadata', function(){ v.currentTime = 5; });
-    v.load();
     function forcePlay(){
       if(v.paused){ v.play().catch(function(){}); }
     }
-    v.play().catch(function(){});
+    forcePlay();
     setTimeout(forcePlay, 500);
     setTimeout(forcePlay, 1500);
     setTimeout(forcePlay, 3000);
