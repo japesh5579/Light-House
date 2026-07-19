@@ -116,6 +116,27 @@ CONTACTS
   }
   if('requestIdleCallback' in window){ requestIdleCallback(loadHeroVideo, {timeout:1500}); }
   else { setTimeout(loadHeroVideo, 500); }
+  setTimeout(function(){
+    var v = document.querySelector('.lh-hero-video');
+    if(!v) return;
+    var wrap = document.querySelector('.lh-hero-video-wrap');
+    var rect = wrap ? wrap.getBoundingClientRect() : {width:0,height:0};
+    var box = document.createElement('div');
+    box.style.cssText = 'position:relative;z-index:50;background:#fff;color:#000;font:11px monospace;padding:10px;line-height:1.5;word-break:break-all;border-top:2px solid red;';
+    box.innerHTML = 'VIDEO DEBUG<br>' +
+      'wrap size: ' + Math.round(rect.width) + 'x' + Math.round(rect.height) + '<br>' +
+      'paused: ' + v.paused + '<br>' +
+      'muted: ' + v.muted + '<br>' +
+      'currentTime: ' + v.currentTime.toFixed(2) + '<br>' +
+      'readyState: ' + v.readyState + '<br>' +
+      'networkState: ' + v.networkState + '<br>' +
+      'error: ' + (v.error ? (v.error.code + ' ' + v.error.message) : 'none') + '<br>' +
+      'currentSrc: ' + v.currentSrc + '<br>' +
+      'videoWH: ' + v.videoWidth + 'x' + v.videoHeight + '<br>' +
+      'display: ' + getComputedStyle(v).display + '<br>' +
+      'UA: ' + navigator.userAgent;
+    wrap.parentNode.insertBefore(box, wrap.nextSibling);
+  }, 4000);
 })();
 </script>
 </div>
