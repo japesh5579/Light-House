@@ -8,5 +8,10 @@
 // script, which breaks non-idempotent widgets like Tilda's slider/carousel
 // init).
 export function TildaBody({ html }: { html: string }) {
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: html }}
+      suppressHydrationWarning
+    />
+  );
 }

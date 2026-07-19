@@ -8,8 +8,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <TildaHead />
-      <body className="t-body" style={{ margin: 0 }}>
+      <head>
+        <TildaHead />
+      </head>
+      <body className="t-body" style={{ margin: 0 }} suppressHydrationWarning>
         {children}
       </body>
     </html>
