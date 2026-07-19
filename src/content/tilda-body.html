@@ -66,11 +66,11 @@ CONTACTS
 </div>
 <div class="lh-hero-video-wrap">
 <style>
-.lh-hero-video-wrap{width:100%;background:#000;line-height:0;}
+.lh-hero-video-wrap{width:100%;background:#000 url(lh-hero-bg.png) center/cover no-repeat;line-height:0;}
 .lh-hero-video-wrap video{width:100%;height:auto;aspect-ratio:16/9;display:block;max-height:520px;object-fit:cover;}
 @media(max-width:640px){.lh-hero-video-wrap video{aspect-ratio:4/5;max-height:420px;}}
 </style>
-<video class="lh-hero-video" poster="lh-hero-bg.png" loop="" muted="" playsinline="" webkit-playsinline="" preload="auto"></video>
+<video class="lh-hero-video" poster="lh-hero-bg.png" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata"></video>
 <script>
 (function(){
   function loadHeroVideo(){
@@ -90,6 +90,8 @@ CONTACTS
     setTimeout(forcePlay, 500);
     setTimeout(forcePlay, 1500);
     setTimeout(forcePlay, 3000);
+    v.addEventListener('error', function(){ v.style.display = 'none'; });
+    setTimeout(function(){ if(v.paused && v.readyState < 3){ v.style.display = 'none'; } }, 8000);
     var unmuted = false;
     function tryUnmute(){
       if(unmuted) return;
