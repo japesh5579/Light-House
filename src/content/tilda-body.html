@@ -67,17 +67,17 @@ CONTACTS
 <div class="lh-hero-video-wrap">
 <style>
 .lh-hero-video-wrap{width:100%;position:relative;background:#000 url(lh-hero-bg.jpg) center/cover no-repeat;line-height:0;}
-.lh-hero-video-wrap video{width:100%;height:auto;display:block;max-height:520px;object-fit:cover;}
+.lh-hero-video-wrap video{width:100%;height:auto;display:block;max-height:520px;object-fit:contain;}
 .lh-hero-mute-btn{position:absolute;right:18px;bottom:18px;z-index:6;width:44px;height:44px;border-radius:50%;background:rgba(21,14,112,0.75);border:1px solid rgba(255,255,255,0.5);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
 .lh-hero-mute-btn svg{width:20px;height:20px;}
 @supports (aspect-ratio: 1/1){
 .lh-hero-video-wrap video{aspect-ratio:16/9;}
-@media(max-width:640px){.lh-hero-video-wrap video{aspect-ratio:4/5;max-height:420px;}}
+@media(max-width:640px){.lh-hero-video-wrap video{max-height:420px;}}
 }
 @supports not (aspect-ratio: 1/1){
 .lh-hero-video-wrap{position:relative;height:0;padding-top:56.25%;max-height:520px;overflow:hidden;}
-.lh-hero-video-wrap video{position:absolute;top:0;left:0;height:100%;max-height:none;}
-@media(max-width:640px){.lh-hero-video-wrap{padding-top:125%;max-height:420px;}}
+.lh-hero-video-wrap video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;max-height:none;}
+@media(max-width:640px){.lh-hero-video-wrap{max-height:420px;}}
 }
 </style>
 <video class="lh-hero-video" poster="lh-hero-bg.jpg" loop="" muted="" autoplay="" playsinline="" webkit-playsinline="" preload="metadata">
