@@ -93,8 +93,9 @@ CONTACTS
     if(!v || v.dataset.loaded) return;
     v.dataset.loaded = '1';
     v.addEventListener('loadedmetadata', function(){ v.currentTime = 5; });
+    var isVisible = true;
     function forcePlay(){
-      if(v.paused){ v.play().catch(function(){}); }
+      if(v.paused && isVisible){ v.play().catch(function(){}); }
     }
     forcePlay();
     setTimeout(forcePlay, 500);
@@ -133,12 +134,13 @@ CONTACTS
     if('IntersectionObserver' in window){
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(e){
-          if(e.isIntersecting){
+          isVisible = e.isIntersecting;
+          if(isVisible){
             v.play().catch(function(){});
           } else {
             v.pause();
           }
-          if(unmuted){ v.muted = !e.isIntersecting; updateBtn(); }
+          if(unmuted){ v.muted = !isVisible; updateBtn(); }
         });
       }, {threshold:0});
       io.observe(v);
