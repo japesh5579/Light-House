@@ -472,6 +472,27 @@ CONTACTS
 <h2>Pankh</h2>
 <p>NGO School &amp; Community Outreach -- India</p>
 </div>
+<style>
+.lh-pankh-video-wrap{max-width:900px;margin:0 auto 44px;padding:0 20px;}
+.lh-pankh-video-wrap video{width:100%;display:block;border-radius:14px;box-shadow:0 10px 30px rgba(21,14,112,0.15);}
+</style>
+<div class="lh-pankh-video-wrap">
+<video class="lh-pankh-video" muted="" autoplay="" loop="" playsinline="" webkit-playsinline="" preload="metadata">
+<source src="lh-pankh-video.mp4" type="video/mp4"/>
+</video>
+</div>
+<script>
+(function(){
+  var v = document.querySelector('.lh-pankh-video');
+  if(!v) return;
+  v.addEventListener('loadedmetadata', function(){ v.currentTime = 3; });
+  function forcePlay(){ if(v.paused){ v.play().catch(function(){}); } }
+  forcePlay();
+  setTimeout(forcePlay, 500);
+  setTimeout(forcePlay, 1500);
+  setTimeout(forcePlay, 3000);
+})();
+</script>
 <div class="lh-org-a__row lh-org-a__row--alt">
 <div class="lh-org-a__photo"><img src="img/custom/pankh-cover.jpg" alt="Pankh - The Creative School" loading="lazy"/></div>
 <div class="lh-org-a__text">
