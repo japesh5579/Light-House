@@ -473,13 +473,18 @@ CONTACTS
 <p>NGO School &amp; Community Outreach -- India</p>
 </div>
 <style>
-.lh-pankh-video-wrap{max-width:900px;margin:0 auto 44px;padding:0 20px;}
+.lh-pankh-video-wrap{max-width:900px;margin:0 auto 44px;padding:0 20px;position:relative;}
 .lh-pankh-video-wrap video{width:100%;display:block;border-radius:14px;box-shadow:0 10px 30px rgba(21,14,112,0.15);}
+.lh-pankh-mute-btn{position:absolute;right:38px;bottom:18px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(21,14,112,0.75);border:1px solid rgba(255,255,255,0.5);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
+.lh-pankh-mute-btn svg{width:20px;height:20px;}
 </style>
 <div class="lh-pankh-video-wrap">
 <video class="lh-pankh-video" muted="" autoplay="" loop="" playsinline="" webkit-playsinline="" preload="metadata">
 <source src="lh-pankh-video.mp4" type="video/mp4"/>
 </video>
+<button aria-label="Turn sound on" class="lh-pankh-mute-btn" type="button">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><line x1="23" x2="17" y1="9" y2="15"/><line x1="17" x2="23" y1="9" y2="15"/></svg>
+</button>
 </div>
 <script>
 (function(){
@@ -490,6 +495,22 @@ CONTACTS
   forcePlay();
   setTimeout(forcePlay, 500);
   setTimeout(forcePlay, 1500);
+  var btn = document.querySelector('.lh-pankh-mute-btn');
+  function updateBtn(){
+    if(!btn) return;
+    btn.innerHTML = v.muted
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+    btn.setAttribute('aria-label', v.muted ? 'Turn sound on' : 'Turn sound off');
+  }
+  if(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      v.muted = !v.muted;
+      v.play().catch(function(){});
+      updateBtn();
+    });
+  }
   setTimeout(forcePlay, 3000);
 })();
 </script>
