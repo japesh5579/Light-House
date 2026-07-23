@@ -1,10 +1,5 @@
 /* Intentionally minimal: all visual styling for this page comes from the
    original Tilda-exported stylesheets, loaded via <link> tags rendered in
    layout.tsx (see public/css, public/css2, public/ws, and
-   public/custom__t_1783757606.css). Tailwind utility classes are used only
-   by shadcn-style components under src/components/ui (e.g. bento-grid).
-   Preflight is intentionally excluded -- it resets margins/headings/lists
-   globally and would fight with the hand-tuned Tilda CSS used everywhere
-   else on this page. Only the utilities and theme layers are imported. */
-@import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/utilities" layer(utilities);
+   public/custom__t_1783757606.css). No Tailwind utility classes are used
+   on the ported markup, so Tailwind is not imported here. */
